@@ -50,7 +50,8 @@ two-line layout is not required for compatibility.
 ### 4. Line ordering changes reverse lookups
 
 `gethostbyaddr` and `getnameinfo` return the first name on the matching line.
-Listing the dotted name first returns a trailing-dot canonical name
+A line with only the dotted name, or with the dotted name first, returns a
+trailing-dot canonical name
 (`api.example.test.`), which differs from today's output. Listing the undotted
 name first (`IP name name.`) resolves both forms and keeps the canonical name
 unchanged. Tested on glibc 2.41 and musl 1.2.6.

@@ -1,9 +1,11 @@
 ## python:3-slim: what does a REVERSE lookup of 10.10.10.10 return? (canonical name)
+  10.10.10.10 api.example.test.|    gethostbyaddr -> api.example.test.    getnameinfo   -> api.example.test. 
   10.10.10.10 api.example.test.|10.10.10.10 api.example.test|gethostbyaddr -> api.example.test.    getnameinfo   -> api.example.test. 
   10.10.10.10 api.example.test. api.example.test|gethostbyaddr -> api.example.test.    getnameinfo   -> api.example.test. 
   10.10.10.10 api.example.test api.example.test.|gethostbyaddr -> api.example.test    getnameinfo   -> api.example.test 
   10.10.10.10 api.example.test|     gethostbyaddr -> api.example.test    getnameinfo   -> api.example.test 
 ## python:3-alpine: what does a REVERSE lookup of 10.10.10.10 return? (canonical name)
+  10.10.10.10 api.example.test.|    gethostbyaddr -> api.example.test.    getnameinfo   -> api.example.test. 
   10.10.10.10 api.example.test.|10.10.10.10 api.example.test|gethostbyaddr -> api.example.test.    getnameinfo   -> api.example.test. 
   10.10.10.10 api.example.test. api.example.test|gethostbyaddr -> api.example.test.    getnameinfo   -> api.example.test. 
   10.10.10.10 api.example.test api.example.test.|gethostbyaddr -> api.example.test    getnameinfo   -> api.example.test 
