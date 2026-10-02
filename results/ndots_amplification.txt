@@ -1,0 +1,10 @@
+counting DNS server at 172.17.0.2
+libc     search domains       app looks up         DNS queries sent
+glibc           3             api.example.test     8
+glibc           3             api.example.test.    2
+glibc           5             api.example.test     12
+glibc           5             api.example.test.    2
+musl            3             api.example.test     8
+musl            3             api.example.test.    2
+musl            5             api.example.test     12
+musl            5             api.example.test.    2

@@ -1,0 +1,12 @@
+################ debian:bullseye-slim: ldd (Debian GLIBC 2.31-13+deb11u14) 2.31
+  hosts=10.10.10.10 api.example.test|      [api.example.test => 10.10.10.10] [api.example.test. => MISS]
+  hosts=10.10.10.10 api.example.test.|     [api.example.test => MISS] [api.example.test. => 10.10.10.10]
+  hosts=10.10.10.10 api.example.test.|10.10.10.10 api.example.test| [api.example.test => 10.10.10.10] [api.example.test. => 10.10.10.10]
+  hosts=10.10.10.10 api.example.test. api.example.test| [api.example.test => 10.10.10.10] [api.example.test. => 10.10.10.10]
+  hosts=10.10.10.10 api.example.test api.example.test.| [api.example.test => 10.10.10.10] [api.example.test. => 10.10.10.10]
+################ alpine:3.12: musl libc (aarch64)
+  hosts=10.10.10.10 api.example.test|      [api.example.test => 10.10.10.10] [api.example.test. => MISS]
+  hosts=10.10.10.10 api.example.test.|     [api.example.test => MISS] [api.example.test. => 10.10.10.10]
+  hosts=10.10.10.10 api.example.test.|10.10.10.10 api.example.test| [api.example.test => 10.10.10.10] [api.example.test. => 10.10.10.10]
+  hosts=10.10.10.10 api.example.test. api.example.test| [api.example.test => 10.10.10.10] [api.example.test. => 10.10.10.10]
+  hosts=10.10.10.10 api.example.test api.example.test.| [api.example.test => 10.10.10.10] [api.example.test. => 10.10.10.10]

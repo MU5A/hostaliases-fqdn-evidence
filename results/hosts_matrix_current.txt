@@ -1,0 +1,52 @@
+################ glibc 2.41 (python:3-slim)
+  /etc/hosts = 10.10.10.10 api.example.test|
+    query 'api.example.test'     getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query 'api.example.test.'    getaddrinfo=MISS               getent=MISS
+    query "api.example.test"     go-pure=[10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10]
+  /etc/hosts = 10.10.10.10 api.example.test.|
+    query 'api.example.test'     getaddrinfo=MISS               getent=MISS
+    query 'api.example.test.'    getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query "api.example.test"     go-pure=[10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10]
+  /etc/hosts = 10.10.10.10 api.example.test.|10.10.10.10 api.example.test|
+    query 'api.example.test'     getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query 'api.example.test.'    getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query "api.example.test"     go-pure=[10.10.10.10 10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10 10.10.10.10]
+  /etc/hosts = 10.10.10.10 api.example.test. api.example.test|
+    query 'api.example.test'     getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query 'api.example.test.'    getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query "api.example.test"     go-pure=[10.10.10.10 10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10 10.10.10.10]
+  /etc/hosts = 10.10.10.10 api.example.test api.example.test.|
+    query 'api.example.test'     getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query 'api.example.test.'    getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query "api.example.test"     go-pure=[10.10.10.10 10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10 10.10.10.10]
+################ musl (python:3-alpine)
+  /etc/hosts = 10.10.10.10 api.example.test|
+    query 'api.example.test'     getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query 'api.example.test.'    getaddrinfo=MISS               getent=MISS
+    query "api.example.test"     go-pure=[10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10]
+  /etc/hosts = 10.10.10.10 api.example.test.|
+    query 'api.example.test'     getaddrinfo=MISS               getent=MISS
+    query 'api.example.test.'    getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query "api.example.test"     go-pure=[10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10]
+  /etc/hosts = 10.10.10.10 api.example.test.|10.10.10.10 api.example.test|
+    query 'api.example.test'     getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query 'api.example.test.'    getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query "api.example.test"     go-pure=[10.10.10.10 10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10 10.10.10.10]
+  /etc/hosts = 10.10.10.10 api.example.test. api.example.test|
+    query 'api.example.test'     getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query 'api.example.test.'    getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query "api.example.test"     go-pure=[10.10.10.10 10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10 10.10.10.10]
+  /etc/hosts = 10.10.10.10 api.example.test api.example.test.|
+    query 'api.example.test'     getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query 'api.example.test.'    getaddrinfo=['10.10.10.10']    getent=10.10.10.10
+    query "api.example.test"     go-pure=[10.10.10.10 10.10.10.10]
+    query "api.example.test."    go-pure=[10.10.10.10 10.10.10.10]
