@@ -35,7 +35,9 @@ Resolvers match `/etc/hosts` names literally, in both directions. With
 and `getent hosts api.example.test.` both miss. With only the dotted entry, the
 undotted query misses. Observed on glibc 2.31, glibc 2.41, musl 1.1.24 (Alpine
 3.12) and musl 1.2.6 (current Alpine). The pure-Go resolver normalizes the dot and resolves
-both forms from either entry.
+both forms from either entry. Node.js 22.23.3 (`dns.lookup`) and OpenJDK 21.0.12
+(`InetAddress.getAllByName`) behave identically to the libc results on both glibc
+and musl, including the dotted-only and single-line cases.
 
 So an application that uses the absolute form to avoid the amplification above
 cannot be overridden through `hostAliases` today.
@@ -62,6 +64,7 @@ unchanged. Tested on glibc 2.41 and musl 1.2.6.
 |---|---|
 | `run.sh` | Builds the Go probe, runs everything, writes `results/` |
 | `matrix.sh` | Hosts-file matching on glibc 2.41 and musl 1.2.6 (`getaddrinfo`, `getent`, pure Go) |
+| `runtimes.sh`, `probe.js`, `Probe.java` | The same forward-lookup matrix for Node.js 22 and Java 21 on glibc and musl |
 | `matrix_old.sh` | Same matrix on glibc 2.31 and musl 1.1.24 on Alpine 3.12 (`getent`) |
 | `reverse.sh` | Canonical name returned by reverse lookups for each line ordering |
 | `ndots.sh`, `dnsserver.py` | Query-count measurement against a counting DNS server |
@@ -78,8 +81,9 @@ Requires Docker and Go.
 
 ## What this does not cover
 
-- Java, Node.js and other runtimes. Only libc resolvers and Go's pure resolver
-  were tested.
+- Runtimes other than Python, Go, Node.js and Java. Node's `dns.resolve*` family
+  uses c-ares and does not read `/etc/hosts` at all, so only `dns.lookup`
+  (which calls `getaddrinfo`) is relevant here and was tested.
 - libc versions beyond those listed.
 - Real-world resolver behavior under retries, timeouts or packet loss. The
   amplification test uses a server that answers promptly (NXDOMAIN for search
